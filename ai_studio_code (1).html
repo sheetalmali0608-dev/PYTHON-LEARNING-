@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyLearn - IT & AI Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pyodide for running Python in browser -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        #console-output { font-family: 'Courier New', Courier, monospace; }
+    </style>
+</head>
+<body class="bg-slate-900 text-white min-h-screen font-sans">
+
+    <!-- Navigation -->
+    <nav class="border-b border-slate-700 p-4 sticky top-0 bg-slate-900 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-400"><i class="fab fa-python"></i> PyLearn AI</h1>
+            <div class="space-x-6">
+                <a href="#courses" class="hover:text-blue-400">Courses</a>
+                <a href="#editor" class="hover:text-blue-400">Code Editor</a>
+                <a href="#download" class="hover:text-blue-400">Downloads</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container mx-auto py-16 px-4 text-center">
+        <h2 class="text-5xl font-extrabold mb-4">Master Python for <span class="text-blue-500">IT & AI</span></h2>
+        <p class="text-slate-400 text-xl mb-8">Learn, Code, and Build AI models directly in your browser.</p>
+        <div class="flex justify-center gap-4">
+            <a href="#editor" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-bold transition">Start Coding Now</a>
+            <a href="#download" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-lg font-bold transition">Install Tools</a>
+        </div>
+    </header>
+
+    <!-- Courses Section -->
+    <section id="courses" class="container mx-auto py-12 px-4">
+        <h3 class="text-3xl font-bold mb-8">Learning Paths</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <div class="text-blue-400 text-3xl mb-4"><i class="fas fa-server"></i></div>
+                <h4 class="text-xl font-bold mb-2">Python for IT Automation</h4>
+                <p class="text-slate-400 mb-4">Learn scripting, file management, and system administration using Python.</p>
+                <ul class="text-sm space-y-2 text-slate-300">
+                    <li>• OS Module & File Handling</li>
+                    <li>• Automating Tasks</li>
+                    <li>• Networking Basics</li>
+                </ul>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                <div class="text-purple-400 text-3xl mb-4"><i class="fas fa-brain"></i></div>
+                <h4 class="text-xl font-bold mb-2">Python for AI & Data Science</h4>
+                <p class="text-slate-400 mb-4">Dive into Machine Learning, Neural Networks, and Data Analysis.</p>
+                <ul class="text-sm space-y-2 text-slate-300">
+                    <li>• NumPy & Pandas</li>
+                    <li>• Intro to Scikit-Learn</li>
+                    <li>• Building Simple Chatbots</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Editor Section -->
+    <section id="editor" class="container mx-auto py-12 px-4">
+        <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+            <div class="bg-slate-700 p-3 flex justify-between items-center">
+                <span class="font-mono text-sm">online_compiler.py</span>
+                <button onclick="runPython()" id="run-btn" class="bg-green-600 hover:bg-green-700 px-4 py-1 rounded text-sm font-bold transition">
+                    <i class="fas fa-play mr-2"></i>Run Code
+                </button>
+            </div>
+            <div class="grid md:grid-cols-2 h-[400px]">
+                <textarea id="code-input" class="w-full h-full bg-slate-900 p-4 font-mono text-blue-300 outline-none resize-none" spellcheck="false"># Write Python code here
+print("Hello IT & AI World!")
+
+for i in range(5):
+    print(f"Counting: {i}")
+
+def ai_assistant():
+    return "AI Model Initialized..."
+
+print(ai_assistant())
+</textarea>
+                <div class="bg-black p-4 overflow-y-auto">
+                    <div class="text-gray-500 text-xs mb-2">OUTPUT:</div>
+                    <pre id="console-output" class="text-green-400 whitespace-pre-wrap"></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="container mx-auto py-20 px-4 bg-blue-900/20 rounded-3xl my-12">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold">Setup Your Local Environment</h3>
+            <p class="text-slate-400 mt-2">Ready to go professional? Download the industry-standard tools.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="bg-slate-800 p-8 rounded-2xl text-center border border-blue-500/30">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" class="h-16 mx-auto mb-4" alt="Python">
+                <h4 class="text-xl font-bold">Python Interpreter</h4>
+                <p class="text-slate-400 mb-6 text-sm">The core engine required to run Python code on your computer.</p>
+                <a href="https://www.python.org/downloads/" target="_blank" class="block bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-bold">Download Python</a>
+            </div>
+            <div class="bg-slate-800 p-8 rounded-2xl text-center border border-blue-500/30">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" class="h-16 mx-auto mb-4" alt="VS Code">
+                <h4 class="text-xl font-bold">VS Code Editor</h4>
+                <p class="text-slate-400 mb-6 text-sm">The best free code editor for Python and AI development.</p>
+                <a href="https://code.visualstudio.com/download" target="_blank" class="block bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-bold">Download VS Code</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Floating UI -->
+    <div id="ai-chat" class="fixed bottom-6 right-6 w-80 bg-slate-800 rounded-2xl shadow-2xl border border-slate-600 hidden flex-col">
+        <div class="bg-blue-600 p-4 rounded-t-2xl flex justify-between items-center">
+            <span class="font-bold"><i class="fas fa-robot mr-2"></i> AI Tutor</span>
+            <button onclick="toggleChat()" class="text-white">✕</button>
+        </div>
+        <div id="chat-messages" class="h-64 overflow-y-auto p-4 text-sm space-y-4">
+            <div class="bg-slate-700 p-2 rounded-lg">Hello! I am your Python AI assistant. Ask me anything about Python for IT or AI!</div>
+        </div>
+        <div class="p-4 border-t border-slate-700 flex">
+            <input id="chat-input" type="text" placeholder="Ask a question..." class="w-full bg-slate-900 rounded-l p-2 outline-none text-sm">
+            <button onclick="askAI()" class="bg-blue-600 px-3 rounded-r"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- AI Toggle Button -->
+    <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-blue-600 h-14 w-14 rounded-full shadow-xl hover:scale-110 transition flex items-center justify-center text-2xl">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <footer class="text-center py-10 text-slate-500 text-sm border-t border-slate-800">
+        &copy; 2023 PyLearn AI Academy - Educational Platform
+    </footer>
+
+    <script>
+        // 1. Python Runner Logic
+        let pyodide;
+        async function initPyodide() {
+            document.getElementById('console-output').innerText = "Loading Python Engine...";
+            pyodide = await loadPyodide();
+            document.getElementById('console-output').innerText = "Python 3.11 ready. Click 'Run Code' to execute.";
+        }
+        initPyodide();
+
+        async function runPython() {
+            const code = document.getElementById('code-input').value;
+            const outputElement = document.getElementById('console-output');
+            outputElement.innerText = "Running...";
+            
+            try {
+                // Redirect python print() to our web console
+                pyodide.runPython(`
+                    import sys
+                    import io
+                    sys.stdout = io.StringIO()
+                `);
+                await pyodide.runPythonAsync(code);
+                const stdout = pyodide.runPython("sys.stdout.getvalue()");
+                outputElement.innerText = stdout || "Code executed successfully (no output).";
+            } catch (err) {
+                outputElement.innerText = `Error: ${err.message}`;
+            }
+        }
+
+        // 2. Chat Logic
+        function toggleChat() {
+            const chat = document.getElementById('ai-chat');
+            chat.classList.toggle('hidden');
+            chat.classList.toggle('flex');
+        }
+
+        function askAI() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            
+            if (input.value.trim() === "") return;
+
+            // Add user message
+            messages.innerHTML += `<div class="bg-blue-900/50 p-2 rounded-lg text-right ml-4">${input.value}</div>`;
+            
+            // Simulate AI Response (In a real app, you'd call OpenAI API here)
+            const question = input.value.toLowerCase();
+            let response = "That's a great question about Python! To learn more about that, check the 'Courses' section.";
+            
+            if(question.includes("python")) response = "Python is a high-level language used in AI because of libraries like TensorFlow and PyTorch.";
+            if(question.includes("vs code")) response = "VS Code is the most popular editor. You can download it in the section below!";
+            if(question.includes("variable")) response = "In Python, you create a variable like this: x = 10";
+
+            setTimeout(() => {
+                messages.innerHTML += `<div class="bg-slate-700 p-2 rounded-lg mr-4"><b>AI:</b> ${response}</div>`;
+                messages.scrollTop = messages.scrollHeight;
+            }, 500);
+
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
